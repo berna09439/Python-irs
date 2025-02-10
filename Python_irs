@@ -1,0 +1,121 @@
+import os
+
+while True:
+    print("Sem dependentes e não casado [1]" )
+    print("Não casado com um ou mais dependentes [2]")
+    print("Casado único titular [3]")
+    print("Casado com um ou mais dependentes [4]")
+
+    try:
+        a = int(input("Estado atual? (1-4) = "))
+    except ValueError:
+        print("Entrada inválida! Digite um número entre 1 e 4.")
+        continue
+
+    if a == 1:
+        b = float(input("Salário bruto: "))
+        if b <= 870:
+            print("O salário líquido é ", b)
+        elif b <= 992:
+            c = b * 0.13 - 0.13 * 2.60 * (1208.32 - b)
+            d = b - c
+            print("O salário líquido é ", d)
+        elif b > 992 and b <= 1070:
+            c = b * 0.165 - 0.165 * 1.35 * (1477.67 - b)
+            d = b - c
+            print("O salário líquido é ", d)
+        elif b > 1070 and b <= 1136:
+            c = b * 0.165 - 90.81
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 1136 and b <= 1187:
+            c = b * 0.22 - 153.29
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 1187 and b <= 1787:
+            c = b * 0.25 - 188.90
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 1787 and b <= 2078:
+            c = b * 0.32 - 313.99
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 2078 and b <= 2432:
+            c = b * 0.355 - 386.72
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 2432 and b <= 3233:
+            c = b * 0.3872 - 465.03
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 3233 and b <= 5547:
+            c = b * 0.4005 - 508.03
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 5547 and b <= 20221:
+            c = b * 0.4495 - 779.83
+            d = b - c
+            print("O salário líquido é", d)
+        elif b > 20211:
+            c = b * 0.4717 - 1228.74
+            d = b - c
+            print("O salário líquido é", d)
+        else:
+            print("Valor inválido!")
+
+    elif a == 2:
+        try:
+            e = int(input("Número de dependentes: "))
+            b = float(input("Salário bruto: "))
+        except ValueError:
+            print("Entrada inválida! Digite números válidos.")
+            continue
+
+        if b <= 870:
+            print("O salário líquido é ", b)
+        elif b <= 992:
+            c = b * 0.13 - 0.13 * 2.60 * (1208.32 - b) - (34.29 * e)
+            d = b - c
+            print("O salário líquido é ", d)
+        elif b > 992 and b <= 1070:
+            c = b * 0.165 - 0.165 * 1.35 * (1477.67 - b) - (34.29 * e)
+            d = b - c
+            print("O salário líquido é ", d)
+        else:
+            print("Faixa salarial não suportada.")
+
+    elif a == 3:
+        b = float(input("Salário bruto: "))
+        if b <= 957:
+            print("O salário líquido é ", b)
+        elif b <= 992:
+            c = b * 0.13 - 0.13 * 2.60 * (1208.32 - b)
+            d = b - c
+            print("O salário líquido é ", d)
+        else:
+            print("Faixa salarial não suportada.")
+
+    elif a == 4:
+        try:
+            b = float(input("Salário bruto = "))
+            e = int(input("Número de dependentes = "))
+        except ValueError:
+            print("Entrada inválida! Digite números válidos.")
+            continue
+
+        if b <= 957:
+            print("O salário líquido é ", b)
+        elif b <= 992:
+            c = b * 0.13 - 0.13 * 2.60 * (1208.32 - b) - (42.86 * e)
+            d = b - c
+            print("O salário líquido é ", d)
+        else:
+            print("Faixa salarial não suportada.")
+
+    else:
+        print("Estado inválido! Digite um número entre 1 e 4.")
+
+
+    continuar = input("Deseja calcular novamente? (s/n): ").strip().lower()
+    if continuar != 's':
+        break
